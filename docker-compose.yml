@@ -11,4 +11,4 @@ services:
     ports:
       - 3310:3310
     environment:
-      CLAMAV_MIRROR: "firewall.host:8000"
+      CLAMAV_MIRROR: "http://firewall.host:8000"

@@ -1,5 +1,5 @@
 #!/bin/bash
-CLAMAV_MIRROR=${CLAMAV_MIRROR:-"firewall.host:8000"}
+CLAMAV_MIRROR=${CLAMAV_MIRROR:-"http://firewall.host:8000"}
 CLAMAV_PORT=${CLAMAV_PORT:-"3310"}
 
 if [ -z "${CLAMAV_MIRROR}" ]; then
@@ -29,7 +29,7 @@ Bytecode true
 NotifyClamd /etc/clamav/clamd.conf
 # Check for new database 24 times a day
 Checks 24
-DatabaseMirror http://${CLAMAV_MIRROR}
+DatabaseMirror ${CLAMAV_MIRROR}
 EOF
 fi
 
