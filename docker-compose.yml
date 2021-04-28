@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  clamav-local-mirror:
+    image: ziozzang/clamav-local-mirror
+    restart: always
+    ports:
+      - 8000:8000
+  clamav-server:
+    image: ziozzang/clamav-server
+    restart: always
+    ports:
+      - 3310:3310
+    environment:
+      CLAMAV_MIRROR: "firewall.host:8000"
