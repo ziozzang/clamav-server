@@ -18,7 +18,7 @@ Foreground false
 Debug false
 MaxAttempts 5
 DatabaseDirectory /var/lib/clamav
-DNSDatabaseInfo current.cvd.clamav.net
+#DNSDatabaseInfo current.cvd.clamav.net
 ConnectTimeout 30
 ReceiveTimeout 0
 TestDatabases yes
@@ -37,7 +37,7 @@ echo "TCPSocket ${CLAMAV_PORT}" >> /etc/clamav/clamd.conf
 
 chown -R clamav:clamav /var/run/clamav
 
-freshclam
+#freshclam
 freshclam -d
 
 clamd -F
