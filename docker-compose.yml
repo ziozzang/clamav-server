@@ -10,5 +10,7 @@ services:
     restart: always
     ports:
       - 3310:3310
+    volumes:
+      - ./startup.sh:/opt/startup.sh
     environment:
-      CLAMAV_MIRROR: "http://firewall.host:8000"
+      CLAMAV_MIRROR: "http://clamav-local-mirror:8000"
