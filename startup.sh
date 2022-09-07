@@ -1,6 +1,7 @@
 #!/bin/bash
 CLAMAV_MIRROR=${CLAMAV_MIRROR:-"http://firewall.host:8000"}
 CLAMAV_PORT=${CLAMAV_PORT:-"3310"}
+STREAM_MAX_SIZE=${STREAM_MAX_SIZE:-"100M"}
 
 if [ ! -z "${CLAMAV_MIRROR}" ]; then
 	echo ">>> Setup CLAMAV_MIRROR: ${CLAMAV_MIRROR}"
@@ -10,6 +11,7 @@ if [ ! -z "${CLAMAV_MIRROR}" ]; then
 fi
 
 echo "TCPSocket ${CLAMAV_PORT}" >> /etc/clamav/clamd.conf
+echo "StreamMaxLength ${STREAM_MAX_SIZE}" >> /etc/clamav/clamd.conf
 
 chown -R clamav:clamav /var/run/clamav
 
